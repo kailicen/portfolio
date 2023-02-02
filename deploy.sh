@@ -1,11 +1,12 @@
 #!/bin/sh
 
 echo "Switching to branch master"
-git checkout master
+git checkout main
 
 echo "Building app"
 npm run build
 
 echo "Deploying files to server"
-rsync -avP build/ kailicen@170.187.240.110:/var/www/kailicen.com/
+scp -r build/* kailicen@172.105.254.159:/var/www/kailicen.com/
+
 echo "Deployment complete"
